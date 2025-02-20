@@ -3,9 +3,9 @@ console.log('May the Node be with you')
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const url = 'mongodb+srv://yoda:Br0therBear23!@cluster0.0p4zt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const dotenv = require('dotenv').config()
 
-MongoClient.connect(url)
+MongoClient.connect(process.env.URL)
     .then(client => {
         console.log('connected to database')
         const db = client.db('star-wars-quotes')
